@@ -2,14 +2,26 @@
    desain.css — khusus halaman Desain (desain.html)
    Dimuat SETELAH style.css, jadi hanya mengubah halaman ini.
    Beranda dan Produk tidak terpengaruh.
-
-   Saat ini file ini belum mengubah apa pun, jadi tampilan
-   halaman Desain sama persis seperti aslinya.
-   Tulis gaya khusus Desain di bawah. Contoh (hapus tanda
-   komentar untuk mencoba kartu berwarna biru muda):
-
-   #desain .project { background-color: #cfe9ff; }
    ===================================================== */
+
+/* ---------- Kartu desain berlatar tosca (warna logo biru) ---------- */
+#desain .project {
+  background-color: #8fd3d6;           /* tosca muda */
+  color: #06242a;
+  border-color: #06242a;
+  box-shadow:
+    1px 1px 0 #1f6f78, 2px 2px 0 #1f6f78, 3px 3px 0 #1f6f78,
+    4px 4px 0 #1f6f78, 5px 5px 0 #1f6f78, 6px 6px 0 #1f6f78,
+    14px 22px 34px rgba(0, 0, 0, .45);
+}
+
+#desain .project p { color: #0b3b3f; }
+
+#desain .project .tags { color: #06242a; font-weight: 600; }
+
+#desain .project a { color: #06242a; }
+
+#desain .project .ico { background: radial-gradient(circle at 32% 28%, #ffffff 0 14%, #e4f7f7 48%, #9fd0d2 100%); }
 
 /* ---------- Render 3D lebih rapi ---------- */
 /* blok besar miring lebih halus supaya teks tidak buram */
