@@ -4,40 +4,21 @@
    Beranda dan Desain tidak terpengaruh.
    ===================================================== */
 
-/* ---------- Kartu produk berlatar kuning emas ---------- */
+/* ---------- Kartu produk berlatar tosca (warna logo biru) ---------- */
 #produk .project {
-  background-color: #f2b705;           /* kuning emas */
-  color: #12301c;
-  border-color: #12301c;
+  background-color: #8fd3d6;           /* tosca muda */
+  color: #06242a;
+  border-color: #06242a;
   box-shadow:
-    1px 1px 0 #a87000, 2px 2px 0 #a87000, 3px 3px 0 #a87000,
-    4px 4px 0 #a87000, 5px 5px 0 #a87000, 6px 6px 0 #a87000,
+    1px 1px 0 #1f6f78, 2px 2px 0 #1f6f78, 3px 3px 0 #1f6f78,
+    4px 4px 0 #1f6f78, 5px 5px 0 #1f6f78, 6px 6px 0 #1f6f78,
     14px 22px 34px rgba(0, 0, 0, .45);
 }
 
-#produk .project p { color: #3b2e00; }
+#produk .project p { color: #0b3b3f; }
 
-#produk .project .tags { color: #12301c; font-weight: 600; }
+#produk .project .tags { color: #06242a; font-weight: 600; }
 
-#produk .project a { color: #12301c; }
+#produk .project a { color: #06242a; }
 
-#produk .project .ico { background: radial-gradient(circle at 32% 28%, #ffffff 0 14%, #fffff0 48%, #d8d49a 100%); }
-
-/* ---------- Render 3D lebih rapi ---------- */
-/* blok besar miring lebih halus supaya teks tidak buram */
-.contact, .ppt-frame {
-  transform: perspective(1200px)
-             rotateX(calc(var(--rx, 0deg) * .35))
-             rotateY(calc(var(--ry, 0deg) * .35));
-}
-
-/* judul section: miring halus, tetap sedikit condong */
-.section > h2 {
-  transform: perspective(900px)
-             rotateX(calc(var(--rx, 0deg) * .5))
-             rotateY(calc(var(--ry, 0deg) * .5))
-             rotate(-1.2deg);
-}
-
-/* tepi dan teks kartu tetap tajam saat miring */
-.project, .card, .contact, .section > h2 { backface-visibility: hidden; }
+#produk .project .ico { background: radial-gradient(circle at 32% 28%, #ffffff 0 14%, #e4f7f7 48%, #9fd0d2 100%); }
