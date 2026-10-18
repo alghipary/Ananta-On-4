@@ -41,3 +41,32 @@
 
 /* tepi dan teks kartu tetap tajam saat miring */
 .project, .card, .contact, .section > h2 { backface-visibility: hidden; }
+
+/* ---------- Tempat warna & tipografi ---------- */
+/* judul kedua diberi jarak dari kartu di atasnya */
+#desain .projects + h2 { margin-top: 3.5rem; }
+
+/* kartu warna: kotak warna di atas, keterangan di bawah */
+#desain .swatch { padding: 0; gap: 0; overflow: hidden; }
+
+#desain .swatch .chip {
+  height: 7rem;
+  background-color: var(--c);
+  background-image: linear-gradient(150deg, rgba(255, 255, 255, .38), transparent 50%);
+  border-bottom: 2px solid #06242a;
+}
+
+#desain .swatch .info {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding: 1.1rem 1.5rem 1.4rem;
+}
+
+/* kartu font: contoh huruf besar "Aa" */
+#desain .font-card .aa {
+  font-size: 4.5rem;
+  line-height: 1;
+  color: #0b3b3f;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, .55);
+}
