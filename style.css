@@ -6,8 +6,8 @@
   --muted: #24432b;
   --green: #1b7d37;
   --marker: #ffd23f;
-  --bg-top: #2f5d2a;     /* hijau SMAN 71 */
-  --bg-bottom: #06130a;  /* makin gelap ke bawah */
+  --bg-top: #1f6f78;     /* tosca logo biru */
+  --bg-bottom: #04161b;  /* makin gelap ke bawah */
   --on-bg: #f6f8df;      /* teks di atas background */
   --side: #bdbe8c;       /* sisi tebal kartu 3D */
   --gold-side: #a87000;  /* sisi tebal emas */
@@ -34,8 +34,8 @@
     --marker: #e6c229;
     --side: #08150b;
     --gloss: rgba(255, 255, 255, .09);
-    --bg-top: #2a5427;
-    --bg-bottom: #040d06;
+    --bg-top: #1a5c64;
+    --bg-bottom: #030f13;
     --card: #16291c;
     --line: #f1f7d9;
   }
@@ -53,7 +53,7 @@ body {
   line-height: 1.6;
   color: var(--on-bg);
   background-color: var(--bg-bottom);
-  /* gradasi hijau SMAN 71 -> makin gelap */
+  /* gradasi tosca logo -> makin gelap */
   background-image: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -68,10 +68,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(42vmax 42vmax at 85% 12%, rgba(255, 210, 63, .40), transparent 70%),
-    radial-gradient(48vmax 48vmax at 8% 42%,  rgba(95, 207, 107, .34), transparent 70%),
-    radial-gradient(42vmax 42vmax at 82% 82%, rgba(247, 181, 0, .28), transparent 70%),
-    radial-gradient(38vmax 38vmax at 18% 100%, rgba(95, 207, 107, .30), transparent 70%);
+    radial-gradient(42vmax 42vmax at 85% 12%, rgba(150, 228, 228, .38), transparent 70%),
+    radial-gradient(48vmax 48vmax at 8% 42%,  rgba(60, 170, 182, .34), transparent 70%),
+    radial-gradient(42vmax 42vmax at 82% 82%, rgba(110, 205, 210, .26), transparent 70%),
+    radial-gradient(38vmax 38vmax at 18% 100%, rgba(40, 140, 155, .32), transparent 70%);
   background-size: 140% 140%;
   animation: blend 16s ease-in-out infinite alternate;
 }
@@ -490,7 +490,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   left: 0;
   right: 0;
   height: 50%;
-  background: #173d1c;
+  background: #0b3b3f;
 }
 
 .intro-panel.p-up {
