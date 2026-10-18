@@ -5,12 +5,12 @@
   --ink: #12301c;
   --muted: #24432b;
   --green: #1b7d37;
-  --marker: #ffd23f;
+  --marker: #7cc242;     /* hijau tulisan FAVORIT */
   --bg-top: #1f6f78;     /* tosca logo biru */
   --bg-bottom: #04161b;  /* makin gelap ke bawah */
   --on-bg: #f6f8df;      /* teks di atas background */
   --side: #bdbe8c;       /* sisi tebal kartu 3D */
-  --gold-side: #a87000;  /* sisi tebal emas */
+  --gold-side: #3e7a1f;  /* sisi tebal hijau */
   --gloss: rgba(255, 255, 255, .7);
   --slab: 1px 1px 0 var(--side), 2px 2px 0 var(--side), 3px 3px 0 var(--side),
           4px 4px 0 var(--side), 5px 5px 0 var(--side), 6px 6px 0 var(--side),
@@ -31,7 +31,7 @@
     --ink: #f1f7d9;
     --muted: #c9d9b4;
     --green: #8fe08a;
-    --marker: #e6c229;
+    --marker: #5fa832;
     --side: #08150b;
     --gloss: rgba(255, 255, 255, .09);
     --bg-top: #1a5c64;
@@ -109,11 +109,11 @@ a { color: var(--green); }
 /* shape rounded emas hanya membungkus teks */
 .brand,
 .top nav {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 55%), #E5B80B;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 55%), #7cc242;
   color: #12301c;
   border: 2px solid var(--line);
   border-radius: 999px;
-  box-shadow: 0 5px 0 #9c7b06, 0 12px 18px rgba(0, 0, 0, .4);
+  box-shadow: 0 5px 0 #3e7a1f, 0 12px 18px rgba(0, 0, 0, .4);
 }
 
 .brand {
@@ -141,7 +141,7 @@ a { color: var(--green); }
 .top nav a:active { transform: translateY(2px) scale(.93); }
 
 /* menu yang sedang dibuka */
-.top nav a.active { background: #12301c; color: #E5B80B; }
+.top nav a.active { background: #12301c; color: #7cc242; }
 
 /* efek riak saat diklik */
 .ripple {
@@ -530,7 +530,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   inset: -35%;
   z-index: -1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 226, 122, .85), transparent 65%);
+  background: radial-gradient(circle, rgba(160, 230, 110, .85), transparent 65%);
   opacity: 0;
   animation: burst .7s ease-out 1.15s;
 }
@@ -659,7 +659,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
 .h1 { width: 100px; top: 13%; right: 4%; transform: rotate(14deg); }
 .h2 { width: 64px; top: 50%; left: 2%; transform: scaleX(-1) rotate(10deg); animation-delay: -2s; }
-.h3 { width: 78px; bottom: 9%; right: 5%; color: #E5B80B; transform: rotate(-12deg); animation-delay: -4s; }
+.h3 { width: 78px; bottom: 9%; right: 5%; color: #7cc242; transform: rotate(-12deg); animation-delay: -4s; }
 .h4 { width: 90px; bottom: -40px; left: -1%; transform: scaleX(-1) rotate(-6deg); animation-delay: -1s; }
 
 @keyframes bob { 50% { translate: 0 -22px; } }
@@ -670,7 +670,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   width: 190px;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #fff, rgba(255, 226, 122, .75) 22%, rgba(255, 226, 122, 0));
+  background: linear-gradient(90deg, #fff, rgba(160, 230, 110, .75) 22%, rgba(160, 230, 110, 0));
   transform: rotate(-35deg);
   opacity: 0;
   animation: comet 9s linear infinite;
@@ -686,7 +686,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   margin-top: -5.5px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 10px 4px rgba(255, 226, 122, .85), 0 0 26px 10px rgba(229, 184, 11, .4);
+  box-shadow: 0 0 10px 4px rgba(160, 230, 110, .85), 0 0 26px 10px rgba(100, 190, 60, .4);
 }
 
 .c1 { top: -2%;  right: 8%;  animation-duration: 9s;  animation-delay: 3s; }
@@ -731,16 +731,16 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
 
 /* ---------- Beranda: kartu produk berlatar kuning emas ---------- */
 #beranda .project {
-  background-color: #f2b705;           /* kuning emas */
+  background-color: #7cc242;           /* hijau favorit */
   color: #12301c;
   border-color: #12301c;
   box-shadow:
-    1px 1px 0 #a87000, 2px 2px 0 #a87000, 3px 3px 0 #a87000,
-    4px 4px 0 #a87000, 5px 5px 0 #a87000, 6px 6px 0 #a87000,
+    1px 1px 0 #3e7a1f, 2px 2px 0 #3e7a1f, 3px 3px 0 #3e7a1f,
+    4px 4px 0 #3e7a1f, 5px 5px 0 #3e7a1f, 6px 6px 0 #3e7a1f,
     14px 22px 34px rgba(0, 0, 0, .45);
 }
 
-#beranda .project p { color: #3b2e00; }
+#beranda .project p { color: #123b0a; }
 
 #beranda .project .tags { color: #12301c; font-weight: 600; }
 
@@ -843,7 +843,7 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
 
 /* ikon proyek: bola 3D */
 .ico {
-  background: radial-gradient(circle at 32% 28%, #fff7c9 0 14%, var(--marker) 48%, #c99a00 100%);
+  background: radial-gradient(circle at 32% 28%, #e9f9d6 0 14%, var(--marker) 48%, #4c9a2a 100%);
   box-shadow: 0 4px 0 var(--gold-side), 0 9px 10px rgba(0, 0, 0, .3);
 }
 
