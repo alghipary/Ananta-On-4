@@ -20,8 +20,8 @@
   --card: #fffff0;
   --line: #12301c;
 
-  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Marko One", cursive;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
 
   --max: 1080px;
 }
@@ -46,7 +46,7 @@
 /* ---------- Dasar ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-synthesis: none; } /* Marko One hanya punya 1 ketebalan */
 
 body {
   margin: 0;
@@ -215,8 +215,8 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   margin-top: 1.5rem;
   max-width: 14em;
   color: var(--on-bg);
-  font-family: "Londrina Solid", "Impact", "Arial Black", sans-serif;
-  font-weight: 900;
+  font-family: var(--display);
+  font-weight: 400;
   font-size: clamp(2.2rem, 6vw, 3.8rem);
   line-height: 1;
   letter-spacing: .01em;
