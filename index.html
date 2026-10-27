@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>
+    document.documentElement.classList.add('js');
     try {
       if (sessionStorage.getItem('skipIntro')) {
         document.documentElement.classList.add('no-intro');
@@ -227,6 +228,51 @@
 
       // kembali dengan tombol back: pastikan halaman tidak terkunci
       window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+    })();
+  </script>
+
+  <script>
+    // elemen muncul pelan-pelan saat di-scroll
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var groups = [
+        ['.section > h2', 'up'],
+        ['.scroll', 'left'],
+        ['.landmark', 'right'],
+        ['.projects .project', 'up'],
+        ['.ppt-frame', 'up'],
+        ['.ppt-link', 'up'],
+        ['.contact', 'up']
+      ];
+      var els = [];
+
+      groups.forEach(function (g) {
+        document.querySelectorAll(g[0]).forEach(function (el) {
+          el.classList.add('reveal');
+          el.setAttribute('data-from', g[1]);
+          if (el.classList.contains('project')) {
+            var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+            el.style.setProperty('--d', (i * 0.12) + 's');   // kartu muncul berurutan
+          }
+          els.push(el);
+        });
+      });
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+      els.forEach(function (el) { io.observe(el); });
     })();
   </script>
 
