@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ananta On 4</title>
-  <meta name="description" content="Ananta On 4 Website">
+  <title>Desain — Exypnos</title>
+  <meta name="description" content="Portofolio Nama Kamu, web developer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="desain.css">
+  <link rel="stylesheet" href="layout-arka.css">
   <script>
     try {
       if (sessionStorage.getItem('skipIntro')) {
@@ -49,106 +51,84 @@
   </div>
 
   <header class="top">
-    <a class="brand" href="#atas">exypnos.dev</a>
+    <div class="brand-group">
+      <img class="brand-logo" src="logo.png" alt="Logo Exypnos" width="300" height="300" style="height:3.15rem;width:auto">
+      <a class="brand" href="#atas">exypnos.dev</a>
+    </div>
     <nav aria-label="Navigasi utama">
-      <a href="index.html" class="active" aria-current="page">Beranda</a>
-      <a href="desain.html">Desain</a>
+      <a href="index.html">Beranda</a>
+      <a href="desain.html" class="active" aria-current="page">Desain</a>
       <a href="produk.html">Produk</a>
     </nav>
   </header>
 
   <main id="atas">
 
-    <section class="hero">
-      <div class="hero-text">
-        <p class="status"><span class="dot" aria-hidden="true"></span> Terbuka untuk proyek baru</p>
-        <h1 class="hero-logo"><img src="logo.png" alt="Logo Exypnos" width="300" height="300"></h1>
-        <p class="lead">Ananta On 4</p>
-        <div class="actions">
-          <a class="btn primary" href="#beranda">Lihat filosofi logo</a>
-          <a class="btn" href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <aside class="card" aria-label="Ringkasan profil">
-        <h2>Profil singkat</h2>
-        <dl>
-          <div><dt>Lokasi</dt><dd>Jakarta, Indonesia</dd></div>
-          <div><dt>Fokus</dt><dd>Front-end &amp; UI</dd></div>
-          <div><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
-          <div><dt>Pengalaman</dt><dd>3 tahun</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <!-- TENTANG (gulungan + logo) -->
-    <section id="tentang" class="section about">
-      <div class="scroll">
-        <span class="rod" aria-hidden="true"></span>
-        <div class="paper">
-          <h2><span class="a1">Tentang</span> <span class="a2">ANANTA ON 4</span></h2>
-          <p>Ananta On 4 adalah portofolio front-end dan UI dari SMA Negeri 71 Jakarta. Dibangun dengan HTML, CSS, dan JavaScript, setiap halamannya memakai logo dengan warna tosca dan hijau sebagai ciri khas.</p>
-        </div>
-        <span class="rod" aria-hidden="true"></span>
-      </div>
-      <figure class="landmark">
-        <img src="logo.png" alt="Logo Ananta On 4" width="300" height="300">
-        <svg class="bamboo" viewBox="0 0 60 220" aria-hidden="true">
-          <rect x="24" y="10" width="10" height="210" rx="5" fill="#2a7a67"/>
-          <rect x="26" y="14" width="2.5" height="200" rx="1" fill="#82c27e" opacity=".5"/>
-          <rect x="22.5" y="70" width="13" height="3.5" rx="1.7" fill="#083a3a"/>
-          <rect x="22.5" y="130" width="13" height="3.5" rx="1.7" fill="#083a3a"/>
-          <path d="M29 70 C10 62 2 50 0 36 C16 42 26 54 29 70Z" fill="#3c8f6e"/>
-          <path d="M29 130 C48 122 58 108 60 92 C44 98 32 112 29 130Z" fill="#82c27e"/>
-          <path d="M29 40 C12 32 6 20 6 6 C20 12 28 24 29 40Z" fill="#82c27e"/>
-        </svg>
-      </figure>
-    </section>
-
-    <section id="beranda" class="section">
-      <h2>Filosofi Logo</h2>
+    <section id="desain" class="section">
+      <h2>Palet Warna</h2>
       <div class="projects">
-        <article class="project">
-          <span class="ico" aria-hidden="true">🌿</span>
-          <h3>Warna Hijau</h3>
-          <p>Melambangkan pertumbuhan, harapan, dan semangat belajar yang terus berkembang pada setiap siswa.</p>
-          <p class="tags">Tumbuh · Harapan</p>
+        <article class="project swatch">
+          <div class="chip" style="--c:#0f4048" aria-hidden="true"></div>
+          <div class="info">
+            <h3>Tosca gelap</h3>
+            <p>#0F4048, warna latar utama.</p>
+          </div>
         </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">✨</span>
-          <h3>Warna Emas</h3>
-          <p>Melambangkan kejayaan, prestasi, dan nilai-nilai luhur yang dijaga oleh warga sekolah.</p>
-          <p class="tags">Prestasi · Kejayaan</p>
+        <article class="project swatch">
+          <div class="chip" style="--c:#8fd3d6" aria-hidden="true"></div>
+          <div class="info">
+            <h3>Tosca muda</h3>
+            <p>#8FD3D6, warna kartu.</p>
+          </div>
         </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">📖</span>
-          <h3>Moto Sekolah</h3>
-          <p>SMA Negeri 71 Jakarta: Jaya! Prestasi: Pasti! Akhlak Mulia: Utama!</p>
-          <p class="tags">Jaya · Pasti · Utama</p>
+        <article class="project swatch">
+          <div class="chip" style="--c:#7cc242" aria-hidden="true"></div>
+          <div class="info">
+            <h3>Hijau favorit</h3>
+            <p>#7CC242, warna menu, tombol, dan aksen.</p>
+          </div>
+        </article>
+        <article class="project swatch">
+          <div class="chip" style="--c:#f6f8df" aria-hidden="true"></div>
+          <div class="info">
+            <h3>Krem</h3>
+            <p>#F6F8DF, warna teks.</p>
+          </div>
         </article>
       </div>
-    </section>
 
-    <!-- PRESENTASI CANVA -->
-    <section id="presentasi" class="section">
-      <h2>Presentasi</h2>
-      <div class="ppt-frame">
-        <iframe loading="lazy"
-                src="https://www.canva.com/design/DAHYNz-6VGY/tMIyKCje9g16FL3OgIlq8A/view?embed"
-                title="Presentasi Exypnos di Canva"
-                allowfullscreen="allowfullscreen"
-                allow="fullscreen"></iframe>
+      <h2>Tipografi</h2>
+      <div class="projects">
+        <article class="project font-card">
+          <span class="aa" style="font-family: var(--display); font-weight: 800;" aria-hidden="true">Aa</span>
+          <h3>Bricolage Grotesque</h3>
+          <p>Dipakai untuk judul dan menu, bergaya tegas dan modern.</p>
+        </article>
+        <article class="project font-card">
+          <span class="aa" style="font-family: var(--body); font-weight: 600;" aria-hidden="true">Aa</span>
+          <h3>Instrument Sans</h3>
+          <p>Dipakai untuk teks isi dan tombol agar mudah dibaca.</p>
+        </article>
       </div>
-      <p class="ppt-link"><a href="https://www.canva.com/design/DAHYNz-6VGY/tMIyKCje9g16FL3OgIlq8A/view" target="_blank" rel="noopener">Buka presentasi di Canva</a></p>
     </section>
 
     <section id="kontak" class="section contact">
-      <h2>Contact</h2>
-      <p>Contact kami melalui</p>
+      <h2>Ayo ngobrol</h2>
+      <p>Punya ide atau butuh website? Kirim pesan, biasanya saya balas dalam sehari.</p>
       <a class="btn primary" href="mailto:email@kamu.com">email@kamu.com</a>
     </section>
 
   </main>
+
+  <!-- RUNNING TEXT (tetap di bawah layar, ikut ke mana pun di-scroll) -->
+  <div class="marquee" role="marquee" aria-label="Exypnos, SMAN 71 Jakarta, Front-end dan UI, terbuka untuk proyek baru">
+    <div class="marquee-window" aria-hidden="true">
+      <div class="marquee-track">
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+      </div>
+    </div>
+  </div>
 
   <footer class="foot">
     <p>© 2026 Exypnos. Dibuat dengan Claude Ai. </p>
@@ -159,7 +139,7 @@
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       // kartu miring 3D mengikuti kursor
-      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status').forEach(function (el) {
+      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status, .marquee').forEach(function (el) {
         el.addEventListener('pointermove', function (e) {
           if (e.pointerType === 'touch') return;
           var r = el.getBoundingClientRect();
