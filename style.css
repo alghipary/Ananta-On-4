@@ -1332,3 +1332,43 @@ html::after {
   .top .brand-group, .top .brand { justify-self: center; }
   .top nav { justify-self: center; flex-wrap: wrap; justify-content: center; gap: .25rem; }
 }
+/* =====================================================
+   INTRO: ombak seigaiha yang terbelah
+   ===================================================== */
+
+/* dua panel berisi pola ombak Jepang */
+.intro-panel {
+  background-color: #043643;
+  background-image:
+    radial-gradient(circle at 100% 150%, #0a4f5c 24%, rgba(207,227,238,.3) 24%, rgba(207,227,238,.3) 28%, #0a4f5c 28%, #0a4f5c 36%, rgba(207,227,238,.3) 36%, rgba(207,227,238,.3) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0 150%, #0a4f5c 24%, rgba(207,227,238,.3) 24%, rgba(207,227,238,.3) 28%, #0a4f5c 28%, #0a4f5c 36%, rgba(207,227,238,.3) 36%, rgba(207,227,238,.3) 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50% 100%, rgba(207,227,238,.3) 10%, #0e616f 10%, #0e616f 23%, rgba(207,227,238,.3) 23%, rgba(207,227,238,.3) 30%, #0a4f5c 30%, #0a4f5c 43%, rgba(207,227,238,.3) 43%, rgba(207,227,238,.3) 50%, #0e616f 50%, #0e616f 63%, rgba(207,227,238,.3) 63%, rgba(207,227,238,.3) 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, rgba(207,227,238,.3) 5%, #0a4f5c 5%, #0a4f5c 15%, rgba(207,227,238,.3) 15%, rgba(207,227,238,.3) 20%, #0e616f 20%, #0e616f 29%, rgba(207,227,238,.3) 29%, rgba(207,227,238,.3) 34%, #0a4f5c 34%, #0a4f5c 44%, rgba(207,227,238,.3) 44%, rgba(207,227,238,.3) 49%, transparent 49%, transparent),
+    radial-gradient(circle at 0 50%, rgba(207,227,238,.3) 5%, #0a4f5c 5%, #0a4f5c 15%, rgba(207,227,238,.3) 15%, rgba(207,227,238,.3) 20%, #0e616f 20%, #0e616f 29%, rgba(207,227,238,.3) 29%, rgba(207,227,238,.3) 34%, #0a4f5c 34%, #0a4f5c 44%, rgba(207,227,238,.3) 44%, rgba(207,227,238,.3) 49%, transparent 49%, transparent);
+  background-size: 100px 50px;
+}
+
+/* garis lurus lama diganti tepi bergelombang */
+.intro-panel.p-up   { border-bottom: 0; z-index: 2; }
+.intro-panel.p-down { border-top: 0;    z-index: 1; }
+
+/* tepi ombak menggantung di sambungan kedua panel */
+.intro-panel.p-up::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 26px;
+  background-image: radial-gradient(circle at 50% 0,
+    #0a4f5c 0 9px, rgba(207,227,238,.65) 9px 10.5px,
+    #0e616f 10.5px 18px, rgba(207,227,238,.65) 18px 19.5px,
+    #0a4f5c 19.5px 24px, #cfe3ee 24px 26px,
+    transparent 26.5px);
+  background-size: 52px 26px;
+  background-repeat: repeat-x;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .35));
+}
+
+/* teks di tengah tetap terbaca di atas pola */
+.intro-name { text-shadow: 0 3px 0 #032d38, 0 8px 18px rgba(0, 0, 0, .6); }
