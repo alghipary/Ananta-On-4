@@ -1,188 +1,1179 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Produk — Exypnos</title>
-  <meta name="description" content="Portofolio Nama Kamu, web developer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="produk.css">
-  <link rel="stylesheet" href="layout-arka.css">
-  <script>
-    try {
-      if (sessionStorage.getItem('skipIntro')) {
-        document.documentElement.classList.add('no-intro');
-        sessionStorage.removeItem('skipIntro');
-      }
-    } catch (e) {}
-  </script>
-</head>
-<body>
+@import url("https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Marko+One&family=Inter:wght@400;500;600&display=swap");
 
-  <div class="scene" aria-hidden="true">
-    <svg width="0" height="0" style="position:absolute" focusable="false">
-      <symbol id="horn" viewBox="0 0 100 160">
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#0d2814" stroke-width="16" stroke-linecap="round"/>
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round" transform="translate(-2 -2)"/>
-      </symbol>
-    </svg>
-    <svg class="horn h1" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h2" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h3" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h4" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <i class="comet c1"></i><i class="comet c2"></i><i class="comet c3"></i><i class="comet c4"></i>
-  </div>
+/* ---------- Token ---------- */
+:root {
+  --paper: #f6f8df;
+  --grid: #dde6b5;
+  --ink: #12301c;
+  --muted: #24432b;
+  --green: #1b7d37;
+  --marker: #82c27e;     /* hijau tulisan FAVORIT */
+  --bg-top: #07434f;     /* tosca logo biru (digelapkan) */
+  --bg-bottom: #022c39;  /* makin gelap ke bawah */
+  --on-bg: #f6f8df;      /* teks di atas background */
+  --side: #bdbe8c;       /* sisi tebal kartu 3D */
+  --gold-side: #3e7a1f;  /* sisi tebal hijau */
+  --gloss: rgba(255, 255, 255, .7);
+  --slab: 1px 1px 0 var(--side), 2px 2px 0 var(--side), 3px 3px 0 var(--side),
+          4px 4px 0 var(--side), 5px 5px 0 var(--side), 6px 6px 0 var(--side),
+          14px 22px 34px rgba(0, 0, 0, .45);
+  --card: #fffff0;
+  --line: #12301c;
 
-  <div class="intro" aria-hidden="true">
-    <div class="intro-panel p-up"></div>
-    <div class="intro-panel p-down"></div>
-    <div class="intro-center">
-      <div class="logo-split">
-        <img class="half l" src="logo.png" alt="" width="500" height="500">
-        <img class="half r" src="logo.png" alt="" width="500" height="500">
-      </div>
-      <p class="intro-name">Exypnos</p>
-      <div class="intro-bar"><span></span></div>
-    </div>
-  </div>
+  --display: "Marko One", cursive;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
 
-  <header class="top">
-    <div class="brand-group">
-      <img class="brand-logo" src="logo.png" alt="Logo Exypnos" width="300" height="300">
-      <a class="brand" href="#atas">exypnos.dev</a>
-    </div>
-    <nav aria-label="Navigasi utama">
-      <a href="index.html">Beranda</a>
-      <a href="desain.html">Desain</a>
-      <a href="produk.html" class="active" aria-current="page">Produk</a>
-    </nav>
-  </header>
+  --max: 1080px;
+}
 
-  <main id="atas">
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1f14;
+    --grid: #1a3322;
+    --ink: #f1f7d9;
+    --muted: #c9d9b4;
+    --green: #8fe08a;
+    --marker: #5fa832;
+    --side: #08150b;
+    --gloss: rgba(255, 255, 255, .09);
+    --bg-top: #043643;
+    --bg-bottom: #022c39;
+    --card: #16291c;
+    --line: #f1f7d9;
+  }
+}
 
-    <section id="produk" class="section">
-      <h2>Produk</h2>
-      <div class="projects">
-        <article class="project">
-          <span class="ico" aria-hidden="true">🛒</span>
-          <h3>Toko Online Kecil</h3>
-          <p>Katalog produk dengan keranjang dan checkout via WhatsApp untuk UMKM.</p>
-          <p class="tags">HTML · CSS · JavaScript</p>
-          <a href="#">Lihat kode</a>
-        </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">📝</span>
-          <h3>Catatan Harian</h3>
-          <p>Aplikasi catatan yang tersimpan di browser, bisa dipakai tanpa internet.</p>
-          <p class="tags">JavaScript · PWA</p>
-          <a href="#">Lihat kode</a>
-        </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">⛅</span>
-          <h3>Dashboard Cuaca</h3>
-          <p>Prakiraan cuaca per jam dengan tampilan yang jelas di layar HP.</p>
-          <p class="tags">React · API</p>
-          <a href="#">Lihat kode</a>
-        </article>
-      </div>
-    </section>
+/* ---------- Dasar ---------- */
+*, *::before, *::after { box-sizing: border-box; }
 
-    <section id="kontak" class="section contact">
-      <h2>Ayo ngobrol</h2>
-      <p>Punya ide atau butuh website? Kirim pesan, biasanya saya balas dalam sehari.</p>
-      <a class="btn primary" href="mailto:email@kamu.com">email@kamu.com</a>
-    </section>
+html { scroll-behavior: smooth; font-synthesis: none; } /* Marko One hanya punya 1 ketebalan */
 
-  </main>
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--on-bg);
+  background-color: var(--bg-bottom);
+  background-image: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
 
-  <!-- RUNNING TEXT (tetap di bawah layar, ikut ke mana pun di-scroll) -->
-  <div class="marquee" role="marquee" aria-label="Exypnos, SMAN 71 Jakarta, Front-end dan UI, terbuka untuk proyek baru">
-    <div class="marquee-window" aria-hidden="true">
-      <div class="marquee-track">
-        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
-        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
-      </div>
-    </div>
-  </div>
+/* lapisan latar (isinya ada di bagian LATAR di bawah) */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
 
-  <footer class="foot">
-    <p>© 2026 Exypnos. Dibuat dengan Claude Ai. </p>
-  </footer>
+body::before { z-index: -1; }
 
-  <script>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+h1, h2, h3 {
+  font-family: var(--display);
+  line-height: 1.1;
+  margin: 0;
+}
 
-      // kartu miring 3D mengikuti kursor
-      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status, .marquee').forEach(function (el) {
-        el.addEventListener('pointermove', function (e) {
-          if (e.pointerType === 'touch') return;
-          var r = el.getBoundingClientRect();
-          var x = (e.clientX - r.left) / r.width - 0.5;
-          var y = (e.clientY - r.top) / r.height - 0.5;
-          el.style.setProperty('--ry', (x * 14) + 'deg');
-          el.style.setProperty('--rx', (-y * 14) + 'deg');
-        });
-        el.addEventListener('pointerleave', function () {
-          el.style.setProperty('--rx', '0deg');
-          el.style.setProperty('--ry', '0deg');
-        });
-      });
+p { margin: 0; }
 
-      // logo berputar 3D mengikuti kursor
-      var logos = document.querySelectorAll('.hero-logo img, .brand-logo');
-      if (logos.length) {
-        window.addEventListener('pointermove', function (e) {
-          if (e.pointerType === 'touch') return;
-          var ry = ((e.clientX / innerWidth - 0.5) * 36) + 'deg';
-          var rx = ((0.5 - e.clientY / innerHeight) * 28) + 'deg';
-          logos.forEach(function (l) {
-            l.style.setProperty('--ry', ry);
-            l.style.setProperty('--rx', rx);
-          });
-        });
-      }
-    })();
-  </script>
+a { color: var(--green); }
 
-  <script>
-    (function () {
-      var links = document.querySelectorAll('.top nav a');
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+:focus-visible {
+  outline: 3px solid var(--marker);
+  outline-offset: 3px;
+}
 
-      links.forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
-          e.preventDefault();
+/* ---------- Header ---------- */
+.top {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
 
-          var here = a.getAttribute('aria-current') === 'page';
-          if (!here) { try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {} }
+.top :focus-visible { outline-color: #12301c; }
 
-          if (reduce) { if (!here) location.href = a.href; return; }
+/* shape rounded emas hanya membungkus teks */
+.brand,
+.top nav {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 55%), #82c27e;
+  color: #12301c;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 #3e7a1f, 0 12px 18px rgba(0, 0, 0, .4);
+}
 
-          // riak
-          var r = a.getBoundingClientRect();
-          var d = document.createElement('span');
-          d.className = 'ripple';
-          d.style.left = (e.clientX - r.left) + 'px';
-          d.style.top = (e.clientY - r.top) + 'px';
-          a.appendChild(d);
-          setTimeout(function () { d.remove(); }, 650);
+.brand {
+  padding: .45rem 1.3rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
 
-          if (here) return;
-          document.body.classList.add('leaving');
-          setTimeout(function () { location.href = a.href; }, 320);
-        });
-      });
+.top nav { display: flex; gap: .25rem; padding: .35rem .5rem; }
 
-      // kembali dengan tombol back: pastikan halaman tidak terkunci
-      window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
-    })();
-  </script>
+.top nav a {
+  position: relative;
+  overflow: hidden;
+  padding: .4rem 1rem;
+  color: #12301c;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background .2s, color .2s, transform .12s;
+}
 
-</body>
-</html>
+.top nav a:hover { background: rgba(18, 48, 28, .14); }
+.top nav a:active { transform: translateY(2px) scale(.93); }
+
+/* menu yang sedang dibuka */
+.top nav a.active { background: #12301c; color: #82c27e; }
+
+/* efek riak saat diklik */
+.ripple {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .75);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple .6s ease-out forwards;
+}
+
+@keyframes ripple { to { transform: scale(16); opacity: 0; } }
+
+/* judul section membal setelah menu diklik */
+.section > h2.pop { animation: heading-pop .8s cubic-bezier(.2, 1.5, .4, 1); }
+
+@keyframes heading-pop {
+  40% { transform: rotate(-4deg) scale(1.18); }
+}
+
+/* ---------- Hero ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0 5rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--on-bg);
+  margin-bottom: 1.25rem;
+}
+
+.dot {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 50%;
+  background: #1fb96b;
+  box-shadow: 0 0 0 0 rgba(31, 185, 107, .6);
+  animation: ping 2.2s ease-out infinite;
+}
+
+@keyframes ping {
+  to { box-shadow: 0 0 0 .7rem rgba(31, 185, 107, 0); }
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  max-width: 14em;
+  /* stabilo kuning di belakang teks */
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  background-size: 0% 38%;
+  background-position: 0 90%;
+  animation: stabilo .9s .3s ease-out forwards;
+}
+
+@keyframes stabilo { to { background-size: 100% 38%; } }
+
+@media (prefers-color-scheme: dark) {
+  .hero h1 { background-image: linear-gradient(#2e6a35, #2e6a35); }
+}
+
+.lead {
+  margin-top: 1.5rem;
+  max-width: 14em;
+  color: var(--on-bg);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: .01em;
+}
+
+.actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+
+.hero h1.hero-logo {
+  background: none;
+  animation: none;
+  line-height: 0;
+  max-width: 100%;
+}
+
+.hero-logo img {
+  display: block;
+  width: 100%;
+  max-width: 14rem;
+  height: auto;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-block;
+  padding: .75rem 1.4rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,0) 60%), var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 5px 0 var(--side), 0 12px 18px rgba(0, 0, 0, .35);
+  transition: transform .12s, box-shadow .12s;
+}
+
+.btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--side), 0 8px 12px rgba(0, 0, 0, .35); }
+.btn:active { transform: translateY(5px); box-shadow: 0 0 0 var(--side), 0 3px 6px rgba(0, 0, 0, .35); }
+
+.btn.primary {
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 60%), var(--marker);
+  color: #12301c;
+  box-shadow: 0 5px 0 var(--gold-side), 0 12px 18px rgba(0, 0, 0, .35);
+}
+.btn.primary:hover { box-shadow: 0 3px 0 var(--gold-side), 0 8px 12px rgba(0, 0, 0, .35); }
+.btn.primary:active { box-shadow: 0 0 0 var(--gold-side), 0 3px 6px rgba(0, 0, 0, .35); }
+
+/* ---------- Kartu profil ---------- */
+.card {
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.card .logo {
+  display: block;
+  width: 100%;
+  max-width: 11rem;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  padding-bottom: .8rem;
+  margin-bottom: .4rem;
+  border-bottom: 2px dashed var(--grid);
+}
+
+.card dl { margin: 0; }
+
+.card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+.card dl div:last-child { border-bottom: 0; }
+
+.card dt { color: var(--muted); }
+.card dd { margin: 0; font-weight: 600; text-align: right; }
+
+/* ---------- Section ---------- */
+.section { padding: 3rem 0; }
+
+.section > h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -.02em;
+  margin-bottom: 1.75rem;
+  display: inline-block;
+  padding: .3rem 2rem .4rem;
+  background: var(--marker);
+  color: #12301c;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 var(--gold-side), 0 10px 16px rgba(0, 0, 0, .35);
+  transform: rotate(-1.2deg);
+}
+
+/* ---------- Proyek ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.project h3 { font-size: 1.35rem; }
+.project p { color: var(--muted); }
+.project .tags { font-size: .9rem; color: var(--ink); font-weight: 500; }
+
+.project a {
+  margin-top: auto;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Skill ---------- */
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.skills li {
+  padding: .45rem 1rem;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+
+/* ---------- Hiasan Beranda ---------- */
+.project { position: relative; }
+
+.ico {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background: var(--marker);
+  border: 2px solid var(--line);
+  border-radius: 50%;
+}
+
+/* ---------- Hiasan Produk ---------- */
+.skills li { box-shadow: 3px 3px 0 var(--line); transition: transform .12s; }
+.skills li:hover { transform: translateY(-3px) rotate(-2deg); }
+.skills li span { margin-right: .35rem; }
+
+/* ---------- Desain ---------- */
+.designs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.design {
+  margin: 0;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.design .art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  font-size: 4.5rem;
+  border-bottom: 2px solid var(--line);
+}
+
+.design figcaption { display: flex; flex-direction: column; padding: 1rem 1.25rem; }
+.design figcaption strong { font-family: var(--display); font-size: 1.2rem; }
+.design figcaption span { color: var(--muted); font-size: .95rem; }
+
+.d1 .art { background: radial-gradient(circle at 25% 30%, #fff 0 8%, transparent 9%), linear-gradient(135deg, #ffe94a, #ff9f43); }
+.d2 .art { background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.7) 0 10%, transparent 11%), linear-gradient(135deg, #8fe08a, #1b7d37); }
+.d3 .art { background: radial-gradient(circle at 50% 40%, #3b7a57 0, #12301c 70%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .project, .design, .skills li { transition: none; }
+}
+
+/* ---------- Kontak ---------- */
+.contact {
+  margin: 2rem 0 4rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+}
+
+.contact h2 { margin-bottom: 1rem; }
+
+.contact p {
+  max-width: 30em;
+  margin: 0 auto 1.75rem;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--on-bg);
+  font-size: .95rem;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .card { --rot: 0deg; max-width: 420px; }
+}
+
+@media (max-width: 480px) {
+  .top { flex-direction: column; align-items: flex-start; }
+  .top nav { gap: 1.1rem; }
+  .contact { padding: 2rem 1.25rem; }
+}
+
+
+/* ---------- Transisi pembuka ---------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  animation: intro-hide 0s 2.9s forwards;
+}
+
+.intro-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #032d38;
+}
+
+.intro-panel.p-up {
+  top: 0;
+  border-bottom: 3px solid var(--marker);
+  animation: panel-up .8s cubic-bezier(.77, 0, .18, 1) 2.1s forwards;
+}
+
+.intro-panel.p-down {
+  bottom: 0;
+  border-top: 3px solid var(--marker);
+  animation: panel-down .8s cubic-bezier(.77, 0, .18, 1) 2.1s forwards;
+}
+
+.intro-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1rem;
+  animation: intro-out .35s ease-in 1.95s forwards;
+}
+
+/* logo terbelah, lalu menyatu */
+.logo-split {
+  position: relative;
+  isolation: isolate;
+  width: min(78vw, 62vh, 34rem);
+  aspect-ratio: 1;
+  /* piringan berputar selama animasi masuk */
+  animation: merge-pop .45s ease-out 1.15s, logo-spin 2.4s linear infinite;
+}
+
+.logo-split::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 230, 110, .85), transparent 65%);
+  opacity: 0;
+  animation: burst .7s ease-out 1.15s;
+}
+
+.logo-split .half {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.logo-split .l {
+  clip-path: inset(0 49.5% 0 0);
+  animation: join-l 1s cubic-bezier(.7, 0, .2, 1) .2s both;
+}
+
+.logo-split .r {
+  clip-path: inset(0 0 0 49.5%);
+  animation: join-r 1s cubic-bezier(.7, 0, .2, 1) .2s both;
+}
+
+@keyframes join-l {
+  from { opacity: 0; transform: translateX(-70%) rotate(-14deg); }
+  25%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes join-r {
+  from { opacity: 0; transform: translateX(70%) rotate(14deg); }
+  25%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes merge-pop { 50% { transform: scale(1.14); } }
+@keyframes burst { 30% { opacity: 1; } to { opacity: 0; transform: scale(1.5); } }
+
+.intro-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vmin, 3.2rem);
+  letter-spacing: .06em;
+  color: #f6f8df;
+  animation: rise .6s ease-out 1.15s both;
+}
+
+.intro-bar {
+  width: clamp(12rem, 36vmin, 18rem);
+  height: .7rem;
+  border: 2px solid #f6f8df;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.intro-bar span {
+  display: block;
+  height: 100%;
+  background: var(--marker);
+  animation: bar 1.4s ease-in-out .4s both;
+}
+
+@keyframes panel-up   { to { transform: translateY(-101%); } }
+@keyframes panel-down { to { transform: translateY(101%); } }
+@keyframes intro-out  { to { opacity: 0; transform: scale(.9); } }
+@keyframes intro-hide { to { visibility: hidden; } }
+@keyframes logo-in    { from { opacity: 0; transform: scale(.5) rotate(-8deg); } }
+@keyframes rise       { from { opacity: 0; transform: translateY(14px); } }
+@keyframes bar        { from { width: 0; } to { width: 100%; } }
+
+/* isi halaman muncul setelah tirai terbuka */
+.hero-text, .hero > .card {
+  animation: page-in .8s ease-out 2.35s both;
+}
+
+@keyframes page-in { from { opacity: 0; translate: 0 28px; } }
+
+
+/* ---------- Tampilan 3D (seperti hasil render) ---------- */
+.card, .project, .design, .contact {
+  background-image: linear-gradient(150deg, var(--gloss), transparent 45%);
+  box-shadow: var(--slab);
+}
+
+.card, .project, .design {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+             rotate(var(--rot, 0deg)) translateY(var(--lift, 0px));
+  transition: transform .15s ease-out;
+  will-change: transform;
+}
+
+.card { --rot: 1.5deg; }
+.project:nth-child(odd) { --rot: -.6deg; }
+.project:nth-child(even) { --rot: .6deg; }
+.project:hover, .design:hover { --lift: -5px; }
+
+.skills li { box-shadow: 0 4px 0 var(--side), 0 8px 12px rgba(0, 0, 0, .3); }
+
+.hero-logo img {
+  border-radius: 14px;          /* logo biru berbentuk persegi */
+  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .2s ease-out;
+  /* sisi tebal tosca gelap + bayangan lembut */
+  filter: drop-shadow(0 4px 0 #032d38) drop-shadow(0 22px 18px rgba(0, 0, 0, .45));
+  animation: logo-float 4s ease-in-out infinite;
+}
+
+@keyframes logo-float { 50% { translate: 0 -10px; } }
+
+/* tanduk logo SMAN 71 mengambang di latar */
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.horn {
+  position: absolute;
+  height: auto;
+  color: #eef0e6;
+  overflow: visible;
+  filter: drop-shadow(0 20px 14px rgba(0, 0, 0, .45));
+  animation: bob 7s ease-in-out infinite;
+}
+
+.h1 { width: 100px; top: 13%; right: 4%; transform: rotate(14deg); }
+.h2 { width: 64px; top: 50%; left: 2%; transform: scaleX(-1) rotate(10deg); animation-delay: -2s; }
+.h3 { width: 78px; bottom: 9%; right: 5%; color: #82c27e; transform: rotate(-12deg); animation-delay: -4s; }
+.h4 { width: 90px; bottom: -40px; left: -1%; transform: scaleX(-1) rotate(-6deg); animation-delay: -1s; }
+
+@keyframes bob { 50% { translate: 0 -22px; } }
+
+/* komet jatuh */
+.comet {
+  position: absolute;
+  width: 190px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fff, rgba(160, 230, 110, .75) 22%, rgba(160, 230, 110, 0));
+  transform: rotate(-35deg);
+  opacity: 0;
+  animation: comet 9s linear infinite;
+}
+
+.comet::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px 4px rgba(160, 230, 110, .85), 0 0 26px 10px rgba(100, 190, 60, .4);
+}
+
+.c1 { top: -2%;  right: 8%;  animation-duration: 9s;  animation-delay: 3s; }
+.c2 { top: 8%;   right: 42%; animation-duration: 13s; animation-delay: 6s; }
+.c3 { top: -4%;  right: 68%; animation-duration: 11s; animation-delay: 9s; }
+.c4 { top: 24%;  right: -4%; animation-duration: 15s; animation-delay: 12s; }
+
+@keyframes comet {
+  0%   { opacity: 0; translate: 0 0; }
+  2%   { opacity: 1; }
+  15%  { opacity: 1; }
+  18%  { opacity: 0; translate: -62vmax 43vmax; }
+  100% { opacity: 0; translate: -62vmax 43vmax; }
+}
+
+@media (max-width: 800px) { .horn { display: none; } }
+
+/* ---------- Pindah halaman ---------- */
+.no-intro .intro { display: none; }
+.no-intro .hero-text, .no-intro .hero > .card { animation-duration: .5s; animation-delay: 0s; }
+
+body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; }
+
+/* ---------- Kurangi gerakan ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+  .horn, .hero-logo img { animation: none; }
+  .comet { display: none; }
+  .hero-text, .hero > .card { animation: none; }
+  html { scroll-behavior: auto; }
+  .dot { animation: none; }
+  .hero h1 { animation: none; background-size: 100% 38%; }
+  .btn, .card, .project, .design { transition: none; }
+  .section > h2.pop, .ripple { animation: none; }
+}
+
+
+/* =====================================================
+   TAMBAHAN BERANDA (digabung dari tambahan.css)
+   ===================================================== */
+
+/* ---------- Beranda: kartu produk berlatar kuning emas ---------- */
+#beranda .project {
+  background-color: #82c27e;           /* hijau favorit */
+  color: #12301c;
+  border-color: #12301c;
+  box-shadow:
+    1px 1px 0 #3e7a1f, 2px 2px 0 #3e7a1f, 3px 3px 0 #3e7a1f,
+    4px 4px 0 #3e7a1f, 5px 5px 0 #3e7a1f, 6px 6px 0 #3e7a1f,
+    14px 22px 34px rgba(0, 0, 0, .45);
+}
+
+#beranda .project p { color: #123b0a; }
+
+#beranda .project .tags { color: #12301c; font-weight: 600; }
+
+#beranda .project a { color: #12301c; }
+
+#beranda .project .ico { background: radial-gradient(circle at 32% 28%, #ffffff 0 14%, #fffff0 48%, #d8d49a 100%); }
+
+/* ---------- Beranda: tempat presentasi Canva ---------- */
+.ppt-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;                /* rasio slide */
+  overflow: hidden;
+  background-color: var(--card);
+  background-image: linear-gradient(150deg, var(--gloss), transparent 45%);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--slab);
+}
+
+.ppt-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ppt-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: .4rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--ink);
+}
+
+.ppt-placeholder .ppt-ico { font-size: 3rem; line-height: 1; }
+.ppt-placeholder p { font-family: var(--display); font-weight: 800; font-size: 1.3rem; }
+.ppt-placeholder small { color: var(--muted); font-size: .95rem; }
+
+
+/* =====================================================
+   3D MENYELURUH + LOGO DI HEADER
+   ===================================================== */
+
+/* logo di sebelah kiri "exypnos.dev" */
+.brand-group { display: flex; align-items: center; gap: .7rem; }
+
+.brand-logo {
+  display: block;
+  height: 3.15rem;       /* sama tinggi dengan pil "exypnos.dev" */
+  width: auto;
+  border-radius: 14px;   /* logo biru berbentuk persegi */
+  /* miring halus saja supaya logo kecil tidak goyang atau terpotong */
+  transform: perspective(500px)
+             rotateX(calc(var(--rx, 0deg) * .4))
+             rotateY(calc(var(--ry, 0deg) * .4));
+  transition: transform .2s ease-out;
+  backface-visibility: hidden;
+  /* sisi tebal tosca gelap lurus ke bawah, lalu bayangan lembut */
+  filter:
+    drop-shadow(0 2px 0 #032d38)
+    drop-shadow(0 3px 0 #032d38)
+    drop-shadow(0 8px 6px rgba(0, 0, 0, .4));
+  animation: logo-bob 4s ease-in-out infinite;
+}
+
+@keyframes logo-bob { 50% { translate: 0 -3px; } }
+
+/* logo berputar terus seperti piringan hitam */
+@keyframes logo-spin { to { rotate: 360deg; } }
+
+/* chip status berbentuk tombol 3D */
+.status {
+  padding: .4rem 1.1rem;
+  color: var(--ink);
+  background-color: var(--card);
+  background-image: linear-gradient(150deg, var(--gloss), transparent 45%);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 var(--side), 0 12px 16px rgba(0, 0, 0, .35);
+}
+
+/* blok besar ikut miring 3D mengikuti kursor */
+.contact, .ppt-frame, .section > h2, .status {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+             rotate(var(--rot, 0deg));
+  transition: transform .15s ease-out;
+  will-change: transform;
+}
+
+/* judul section: pil emas dengan sisi tebal */
+.section > h2 {
+  --rot: -1.2deg;
+  box-shadow:
+    0 1px 0 var(--gold-side), 0 2px 0 var(--gold-side), 0 3px 0 var(--gold-side),
+    0 4px 0 var(--gold-side), 0 5px 0 var(--gold-side), 0 6px 0 var(--gold-side),
+    0 14px 18px rgba(0, 0, 0, .4);
+}
+
+/* ikon proyek: bola 3D */
+.ico {
+  background: radial-gradient(circle at 32% 28%, #e9f9d6 0 14%, var(--marker) 48%, #4c9a2a 100%);
+  box-shadow: 0 4px 0 var(--gold-side), 0 9px 10px rgba(0, 0, 0, .3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo { animation: none; }
+  .brand-logo, .contact, .ppt-frame, .section > h2, .status { transition: none; }
+}
+
+
+/* =====================================================
+   RUNNING TEXT 3D (abu perak elegan) - dipakai di Produk & Desain
+   Tetap di bawah layar dan ikut ke mana pun halaman di-scroll,
+   seperti running text berita.
+   ===================================================== */
+.marquee {
+  position: fixed;                       /* selalu ikut di layar, bukan di satu tempat */
+  left: 0;
+  right: 0;
+  bottom: max(.9rem, env(safe-area-inset-bottom));
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  z-index: 50;
+  border: 2px solid #565c66;
+  border-radius: 999px;
+  /* pelat logam perak: kilap di atas, gelap tipis di bawah */
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .85) 0%, rgba(255, 255, 255, 0) 48%,
+                    rgba(0, 0, 0, .07) 52%, rgba(0, 0, 0, .14) 100%),
+    linear-gradient(90deg, #c9cdd3, #eceef1 28%, #c0c5cc 55%, #e6e8ec 80%, #b7bcc4);
+  /* sisi tebal abu gelap + bayangan */
+  box-shadow:
+    0 1px 0 #737982, 0 2px 0 #737982, 0 3px 0 #737982,
+    0 4px 0 #737982, 0 5px 0 #737982, 0 6px 0 #737982,
+    0 14px 18px rgba(0, 0, 0, .4);
+  transform: perspective(1000px)
+             rotateX(calc(var(--rx, 0deg) * .4))
+             rotateY(calc(var(--ry, 0deg) * .4));
+  transition: transform .15s ease-out;
+  will-change: transform;
+}
+
+/* jendela teks: ujung kiri dan kanan memudar halus */
+.marquee-window {
+  overflow: hidden;
+  border-radius: 999px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* dua teks identik, geser setengah lebar = berputar mulus */
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.marquee-item {
+  margin: 0;
+  padding: .6rem 1.5rem .6rem 0;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #2b2f36;
+  /* huruf timbul: highlight putih di bawah, gelap tipis di atas */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .95), 0 -1px 0 rgba(0, 0, 0, .22);
+}
+
+@media (max-width: 480px) {
+  .marquee { bottom: max(.6rem, env(safe-area-inset-bottom)); }
+  .marquee-item { font-size: .9rem; padding-top: .5rem; padding-bottom: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .marquee { transition: none; }
+}
+
+/* ruang di bawah footer agar tidak tertutup running text */
+body:has(.marquee) .foot { padding-bottom: 6rem; }
+
+/* link cadangan presentasi */
+.ppt-link { margin-top: 1rem; }
+.ppt-link a { color: var(--on-bg); font-weight: 600; text-underline-offset: 4px; }
+
+/* presentasi Canva format potret (4:5) */
+.ppt-frame.portrait { aspect-ratio: 4 / 5; max-width: 560px; margin: 0 auto; }
+.ppt-link { text-align: center; }
+
+/* teks footer tetap terbaca di atas latar */
+.foot, .ppt-link a { text-shadow: 0 1px 4px rgba(0, 0, 0, .65); }
+
+
+/* =====================================================
+   LATAR — bergaya Arkavidia, berwarna logo Exypnos
+   (menggantikan latar gradasi + gelombang lama)
+   ===================================================== */
+
+/* =====================================================
+   TENTANG — gulungan kertas + logo (bergaya Arkavidia)
+   Font: Almendra (kata kecil), Marko One (nama), Inter (isi)
+   ===================================================== */
+.about {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* gulungan */
+.scroll {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 1.2rem 0;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .4));
+}
+
+.scroll .rod {
+  position: relative;
+  flex: 0 0 1.9rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #2d6f78, #0e616f 40%, #032d38);
+}
+
+.scroll .rod::before,
+.scroll .rod::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 3rem;
+  height: 1.5rem;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #b5dba5, #82c27e 55%, #4c9a6a);
+  border: 1px solid #3c8f6e;
+}
+.scroll .rod::before { top: -.75rem; }
+.scroll .rod::after  { bottom: -.75rem; }
+
+.scroll .paper {
+  flex: 1;
+  padding: 2.4rem 2rem 2.2rem;
+  text-align: center;
+  color: #043643;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #ffffff 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, #f1f8fb, #dcebf1);
+  border-top: 2px solid #6a9eb3;
+  border-bottom: 2px solid #6a9eb3;
+  border-radius: 40px 40px 40px 40px / 14px 14px 14px 14px;
+}
+
+.scroll h2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+
+.scroll .a1 {
+  font-family: "Almendra", "Georgia", serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  color: #022c39;
+}
+
+.scroll .a2 {
+  font-family: "Marko One", cursive;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: .04em;
+  color: #0e616f;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .7);
+}
+
+.scroll p {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #043643;
+  max-width: 34em;
+  margin: 0 auto;
+}
+
+/* logo menggantikan bangunan */
+.landmark {
+  position: relative;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.landmark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(160deg, #f1f8fb, #cfe3ee);
+  border: 2px solid #6a9eb3;
+  border-radius: 58% 42% 52% 48% / 46% 56% 44% 54%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .35);
+}
+
+.landmark img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+  border-radius: 14px;
+  filter: drop-shadow(0 4px 0 #032d38) drop-shadow(0 20px 16px rgba(0, 0, 0, .45));
+  animation: logo-float 4s ease-in-out infinite;
+}
+
+.landmark .bamboo {
+  position: absolute;
+  z-index: 2;
+  right: -.4rem;
+  bottom: -.6rem;
+  width: 4.5rem;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .about { grid-template-columns: 1fr; }
+  .landmark { max-width: 22rem; margin: 0 auto; }
+  .scroll .paper { padding: 2rem 1.1rem; }
+  .scroll .rod { flex-basis: 1.3rem; }
+  .scroll .rod::before, .scroll .rod::after { width: 2.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landmark img { animation: none; }
+}
+
+/* ---------- Lapis 1: langit, matahari, gunung, bukit, pagoda, bambu (statis) ---------- */
+body::after {
+  --sun: 80% 20%;
+  z-index: -2;
+  animation: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201300%20520%27%3E%3Crect%20x%3D%27703.7%27%20y%3D%27199.9%27%20width%3D%2713.4%27%20height%3D%27320.1%27%20rx%3D%276.7%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%27705.7%27%20y%3D%27203.9%27%20width%3D%273%27%20height%3D%27312.1%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27702.2%27%20y%3D%27259.4%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20259.4%29%20rotate%28-35.0%29%27%20d%3D%27M0%200%20C11.6%20-6.5%2032.5%20-7.4%2046.4%200%20C32.5%205.6%2011.6%205.6%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20263.4%29%20rotate%28242.4%29%27%20d%3D%27M0%200%20C9.9%20-5.5%2027.6%20-6.3%2039.5%200%20C27.6%204.7%209.9%204.7%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27702.2%27%20y%3D%27316.5%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20316.5%29%20rotate%28218.5%29%27%20d%3D%27M0%200%20C10.8%20-6.0%2030.1%20-6.9%2043.0%200%20C30.1%205.2%2010.8%205.2%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20320.5%29%20rotate%28-51.2%29%27%20d%3D%27M0%200%20C9.1%20-5.1%2025.6%20-5.8%2036.6%200%20C25.6%204.4%209.1%204.4%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27702.2%27%20y%3D%27376.0%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20376.0%29%20rotate%28-34.0%29%27%20d%3D%27M0%200%20C10.9%20-6.1%2030.6%20-7.0%2043.7%200%20C30.6%205.2%2010.9%205.2%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28710.4%20380.0%29%20rotate%28248.8%29%27%20d%3D%27M0%200%20C9.3%20-5.2%2026.0%20-5.9%2037.2%200%20C26.0%204.5%209.3%204.5%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27702.2%27%20y%3D%27439.8%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27702.2%27%20y%3D%27514.9%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27120.5%27%20y%3D%2769.9%27%20width%3D%2711.4%27%20height%3D%27450.1%27%20rx%3D%275.7%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%27122.5%27%20y%3D%2773.9%27%20width%3D%273%27%20height%3D%27442.1%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27113.5%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28126.2%20113.5%29%20rotate%28-30.9%29%27%20d%3D%27M0%200%20C11.8%20-6.6%2032.9%20-7.5%2047.0%200%20C32.9%205.6%2011.8%205.6%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27172.5%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28126.2%20172.5%29%20rotate%28201.4%29%27%20d%3D%27M0%200%20C11.4%20-6.4%2031.9%20-7.3%2045.6%200%20C31.9%205.5%2011.4%205.5%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28126.2%20176.5%29%20rotate%28-66.0%29%27%20d%3D%27M0%200%20C9.7%20-5.4%2027.1%20-6.2%2038.8%200%20C27.1%204.7%209.7%204.7%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27238.8%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28126.2%20238.8%29%20rotate%28-29.7%29%27%20d%3D%27M0%200%20C13.6%20-7.6%2038.1%20-8.7%2054.4%200%20C38.1%206.5%2013.6%206.5%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27304.2%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27364.4%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27427.9%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27119.0%27%20y%3D%27486.8%27%20width%3D%2714.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27596.9%27%20y%3D%2779.9%27%20width%3D%2712.2%27%20height%3D%27440.1%27%20rx%3D%276.1%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%27598.9%27%20y%3D%2783.9%27%20width%3D%273%27%20height%3D%27432.1%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27126.0%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28603.0%20126.0%29%20rotate%28-31.3%29%27%20d%3D%27M0%200%20C10.9%20-6.1%2030.5%20-7.0%2043.5%200%20C30.5%205.2%2010.9%205.2%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27190.7%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28603.0%20190.7%29%20rotate%28209.7%29%27%20d%3D%27M0%200%20C13.3%20-7.5%2037.3%20-8.5%2053.3%200%20C37.3%206.4%2013.3%206.4%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28603.0%20194.7%29%20rotate%28-65.5%29%27%20d%3D%27M0%200%20C11.3%20-6.3%2031.7%20-7.3%2045.3%200%20C31.7%205.4%2011.3%205.4%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27250.4%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28603.0%20250.4%29%20rotate%28-30.2%29%27%20d%3D%27M0%200%20C10.6%20-6.0%2029.8%20-6.8%2042.5%200%20C29.8%205.1%2010.6%205.1%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27304.9%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28603.0%20304.9%29%20rotate%28213.6%29%27%20d%3D%27M0%200%20C11.6%20-6.5%2032.5%20-7.4%2046.5%200%20C32.5%205.6%2011.6%205.6%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27363.0%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27418.9%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27595.4%27%20y%3D%27488.8%27%20width%3D%2715.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271017.6%27%20y%3D%27145.1%27%20width%3D%2714.8%27%20height%3D%27374.9%27%20rx%3D%277.4%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%271019.6%27%20y%3D%27149.1%27%20width%3D%273%27%20height%3D%27366.9%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27192.4%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20192.4%29%20rotate%28-23.7%29%27%20d%3D%27M0%200%20C11.3%20-6.3%2031.6%20-7.2%2045.1%200%20C31.6%205.4%2011.3%205.4%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20196.4%29%20rotate%28240.0%29%27%20d%3D%27M0%200%20C9.6%20-5.4%2026.8%20-6.1%2038.3%200%20C26.8%204.6%209.6%204.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27247.4%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20247.4%29%20rotate%28224.2%29%27%20d%3D%27M0%200%20C9.8%20-5.5%2027.4%20-6.3%2039.1%200%20C27.4%204.7%209.8%204.7%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20251.4%29%20rotate%28-50.2%29%27%20d%3D%27M0%200%20C8.3%20-4.7%2023.3%20-5.3%2033.2%200%20C23.3%204.0%208.3%204.0%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27310.3%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20310.3%29%20rotate%28-44.9%29%27%20d%3D%27M0%200%20C13.5%20-7.6%2037.8%20-8.6%2054.0%200%20C37.8%206.5%2013.5%206.5%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20314.3%29%20rotate%28238.9%29%27%20d%3D%27M0%200%20C11.5%20-6.4%2032.1%20-7.3%2045.9%200%20C32.1%205.5%2011.5%205.5%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27362.6%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281025.0%20362.6%29%20rotate%28205.0%29%27%20d%3D%27M0%200%20C11.7%20-6.5%2032.7%20-7.5%2046.7%200%20C32.7%205.6%2011.7%205.6%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27417.7%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271016.1%27%20y%3D%27488.0%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27636.5%27%20y%3D%2789.6%27%20width%3D%2711.1%27%20height%3D%27430.4%27%20rx%3D%275.6%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%27638.5%27%20y%3D%2793.6%27%20width%3D%273%27%20height%3D%27422.4%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27139.8%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28642.0%20139.8%29%20rotate%28-22.0%29%27%20d%3D%27M0%200%20C11.7%20-6.5%2032.7%20-7.5%2046.6%200%20C32.7%205.6%2011.7%205.6%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28642.0%20143.8%29%20rotate%28229.3%29%27%20d%3D%27M0%200%20C9.9%20-5.6%2027.8%20-6.3%2039.7%200%20C27.8%204.8%209.9%204.8%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27212.7%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28642.0%20212.7%29%20rotate%28204.0%29%27%20d%3D%27M0%200%20C10.7%20-6.0%2030.0%20-6.9%2042.9%200%20C30.0%205.2%2010.7%205.2%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27282.4%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28642.0%20282.4%29%20rotate%28-27.9%29%27%20d%3D%27M0%200%20C12.0%20-6.7%2033.6%20-7.7%2048.1%200%20C33.6%205.8%2012.0%205.8%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28642.0%20286.4%29%20rotate%28249.6%29%27%20d%3D%27M0%200%20C10.2%20-5.7%2028.6%20-6.5%2040.9%200%20C28.6%204.9%2010.2%204.9%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27334.8%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27393.0%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27635.0%27%20y%3D%27468.7%27%20width%3D%2714.1%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27662.2%27%20y%3D%2779.9%27%20width%3D%2713.4%27%20height%3D%27440.1%27%20rx%3D%276.7%27%20fill%3D%27%2314584f%27%2F%3E%3Crect%20x%3D%27664.2%27%20y%3D%2783.9%27%20width%3D%273%27%20height%3D%27432.1%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27135.1%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28668.9%20135.1%29%20rotate%28-32.2%29%27%20d%3D%27M0%200%20C12.3%20-6.9%2034.6%20-7.9%2049.4%200%20C34.6%205.9%2012.3%205.9%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27197.9%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28668.9%20197.9%29%20rotate%28224.5%29%27%20d%3D%27M0%200%20C9.8%20-5.5%2027.4%20-6.3%2039.1%200%20C27.4%204.7%209.8%204.7%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28668.9%20201.9%29%20rotate%28-53.5%29%27%20d%3D%27M0%200%20C8.3%20-4.6%2023.2%20-5.3%2033.2%200%20C23.2%204.0%208.3%204.0%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27267.6%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28668.9%20267.6%29%20rotate%28-31.0%29%27%20d%3D%27M0%200%20C12.6%20-7.1%2035.3%20-8.1%2050.4%200%20C35.3%206.0%2012.6%206.0%200%200%20Z%27%20fill%3D%27%232a7a67%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28668.9%20271.6%29%20rotate%28242.4%29%27%20d%3D%27M0%200%20C10.7%20-6.0%2030.0%20-6.9%2042.9%200%20C30.0%205.1%2010.7%205.1%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27333.3%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27404.9%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27660.7%27%20y%3D%27462.4%27%20width%3D%2716.4%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27189.9%27%20y%3D%2799.5%27%20width%3D%2711.2%27%20height%3D%27420.5%27%20rx%3D%275.6%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%27191.9%27%20y%3D%27103.5%27%20width%3D%273%27%20height%3D%27412.5%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27139.2%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28195.6%20139.2%29%20rotate%28-43.2%29%27%20d%3D%27M0%200%20C12.8%20-7.2%2035.8%20-8.2%2051.1%200%20C35.8%206.1%2012.8%206.1%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28195.6%20143.2%29%20rotate%28229.6%29%27%20d%3D%27M0%200%20C10.9%20-6.1%2030.4%20-7.0%2043.4%200%20C30.4%205.2%2010.9%205.2%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27212.6%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28195.6%20212.6%29%20rotate%28215.7%29%27%20d%3D%27M0%200%20C13.2%20-7.4%2037.0%20-8.5%2052.8%200%20C37.0%206.3%2013.2%206.3%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27274.1%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28195.6%20274.1%29%20rotate%28-40.0%29%27%20d%3D%27M0%200%20C12.0%20-6.7%2033.5%20-7.7%2047.9%200%20C33.5%205.7%2012.0%205.7%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27345.4%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27420.3%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27188.4%27%20y%3D%27486.1%27%20width%3D%2714.2%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271075.2%27%20y%3D%2767.8%27%20width%3D%2714.8%27%20height%3D%27452.2%27%20rx%3D%277.4%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%271077.2%27%20y%3D%2771.8%27%20width%3D%273%27%20height%3D%27444.2%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27106.8%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281082.6%20106.8%29%20rotate%28-33.6%29%27%20d%3D%27M0%200%20C12.0%20-6.7%2033.6%20-7.7%2048.0%200%20C33.6%205.8%2012.0%205.8%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27178.9%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281082.6%20178.9%29%20rotate%28226.2%29%27%20d%3D%27M0%200%20C10.6%20-6.0%2029.8%20-6.8%2042.6%200%20C29.8%205.1%2010.6%205.1%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27232.5%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281082.6%20232.5%29%20rotate%28-41.1%29%27%20d%3D%27M0%200%20C12.2%20-6.8%2034.2%20-7.8%2048.9%200%20C34.2%205.9%2012.2%205.9%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281082.6%20236.5%29%20rotate%28248.7%29%27%20d%3D%27M0%200%20C10.4%20-5.8%2029.1%20-6.6%2041.5%200%20C29.1%205.0%2010.4%205.0%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27297.4%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281082.6%20297.4%29%20rotate%28207.7%29%27%20d%3D%27M0%200%20C11.4%20-6.4%2031.9%20-7.3%2045.6%200%20C31.9%205.5%2011.4%205.5%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27351.6%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27425.5%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271073.7%27%20y%3D%27493.2%27%20width%3D%2717.8%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271058.7%27%20y%3D%27154.8%27%20width%3D%2716.0%27%20height%3D%27365.2%27%20rx%3D%278.0%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%271060.7%27%20y%3D%27158.8%27%20width%3D%273%27%20height%3D%27357.2%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%271057.2%27%20y%3D%27190.6%27%20width%3D%2719.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20190.6%29%20rotate%28-31.5%29%27%20d%3D%27M0%200%20C10.5%20-5.9%2029.4%20-6.7%2042.0%200%20C29.4%205.0%2010.5%205.0%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20194.6%29%20rotate%28248.4%29%27%20d%3D%27M0%200%20C8.9%20-5.0%2025.0%20-5.7%2035.7%200%20C25.0%204.3%208.9%204.3%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271057.2%27%20y%3D%27251.0%27%20width%3D%2719.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20251.0%29%20rotate%28222.6%29%27%20d%3D%27M0%200%20C11.7%20-6.5%2032.7%20-7.5%2046.7%200%20C32.7%205.6%2011.7%205.6%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20255.0%29%20rotate%28-62.7%29%27%20d%3D%27M0%200%20C9.9%20-5.6%2027.8%20-6.4%2039.7%200%20C27.8%204.8%209.9%204.8%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271057.2%27%20y%3D%27322.6%27%20width%3D%2719.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20322.6%29%20rotate%28-27.2%29%27%20d%3D%27M0%200%20C11.2%20-6.3%2031.5%20-7.2%2045.0%200%20C31.5%205.4%2011.2%205.4%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281066.7%20326.6%29%20rotate%28234.6%29%27%20d%3D%27M0%200%20C9.6%20-5.4%2026.8%20-6.1%2038.2%200%20C26.8%204.6%209.6%204.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271057.2%27%20y%3D%27396.5%27%20width%3D%2719.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271057.2%27%20y%3D%27459.5%27%20width%3D%2719.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27164.3%27%20y%3D%27103.1%27%20width%3D%2717.5%27%20height%3D%27416.9%27%20rx%3D%278.8%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%27166.3%27%20y%3D%27107.1%27%20width%3D%273%27%20height%3D%27408.9%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27150.4%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28173.1%20150.4%29%20rotate%28-46.3%29%27%20d%3D%27M0%200%20C11.0%20-6.2%2030.8%20-7.0%2044.0%200%20C30.8%205.3%2011.0%205.3%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27216.5%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28173.1%20216.5%29%20rotate%28207.9%29%27%20d%3D%27M0%200%20C10.2%20-5.7%2028.7%20-6.6%2041.0%200%20C28.7%204.9%2010.2%204.9%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27288.0%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28173.1%20288.0%29%20rotate%28-24.2%29%27%20d%3D%27M0%200%20C10.3%20-5.8%2028.8%20-6.6%2041.2%200%20C28.8%204.9%2010.3%204.9%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28173.1%20292.0%29%20rotate%28238.5%29%27%20d%3D%27M0%200%20C8.8%20-4.9%2024.5%20-5.6%2035.0%200%20C24.5%204.2%208.8%204.2%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27350.2%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27410.9%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27162.8%27%20y%3D%27478.3%27%20width%3D%2720.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27101.4%27%20y%3D%2731.7%27%20width%3D%2718.9%27%20height%3D%27488.3%27%20rx%3D%279.4%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%27103.4%27%20y%3D%2735.7%27%20width%3D%273%27%20height%3D%27480.3%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%2763.9%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%2063.9%29%20rotate%28-47.9%29%27%20d%3D%27M0%200%20C10.3%20-5.8%2028.8%20-6.6%2041.2%200%20C28.8%204.9%2010.3%204.9%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27136.6%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%20136.6%29%20rotate%28219.8%29%27%20d%3D%27M0%200%20C11.2%20-6.2%2031.2%20-7.1%2044.6%200%20C31.2%205.4%2011.2%205.4%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%20140.6%29%20rotate%28-56.6%29%27%20d%3D%27M0%200%20C9.5%20-5.3%2026.5%20-6.1%2037.9%200%20C26.5%204.6%209.5%204.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27192.7%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%20192.7%29%20rotate%28-22.1%29%27%20d%3D%27M0%200%20C13.6%20-7.6%2038.2%20-8.7%2054.5%200%20C38.2%206.5%2013.6%206.5%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%20196.7%29%20rotate%28234.1%29%27%20d%3D%27M0%200%20C11.6%20-6.5%2032.4%20-7.4%2046.3%200%20C32.4%205.6%2011.6%205.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27251.3%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28110.9%20251.3%29%20rotate%28225.1%29%27%20d%3D%27M0%200%20C13.6%20-7.6%2038.1%20-8.7%2054.4%200%20C38.1%206.5%2013.6%206.5%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27313.5%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27378.6%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27435.3%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%2799.9%27%20y%3D%27488.1%27%20width%3D%2721.9%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271116.7%27%20y%3D%2791.5%27%20width%3D%2713.0%27%20height%3D%27428.5%27%20rx%3D%276.5%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%271118.7%27%20y%3D%2795.5%27%20width%3D%273%27%20height%3D%27420.5%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27137.9%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281123.1%20137.9%29%20rotate%28-24.4%29%27%20d%3D%27M0%200%20C13.6%20-7.6%2038.2%20-8.7%2054.6%200%20C38.2%206.6%2013.6%206.6%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281123.1%20141.9%29%20rotate%28229.3%29%27%20d%3D%27M0%200%20C11.6%20-6.5%2032.5%20-7.4%2046.4%200%20C32.5%205.6%2011.6%205.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27203.6%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281123.1%20203.6%29%20rotate%28227.1%29%27%20d%3D%27M0%200%20C11.6%20-6.5%2032.6%20-7.4%2046.6%200%20C32.6%205.6%2011.6%205.6%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27267.9%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%281123.1%20267.9%29%20rotate%28-36.5%29%27%20d%3D%27M0%200%20C11.4%20-6.4%2031.9%20-7.3%2045.6%200%20C31.9%205.5%2011.4%205.5%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%281123.1%20271.9%29%20rotate%28238.7%29%27%20d%3D%27M0%200%20C9.7%20-5.4%2027.1%20-6.2%2038.7%200%20C27.1%204.6%209.7%204.6%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27339.0%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27408.8%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27461.5%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%271115.2%27%20y%3D%27518.7%27%20width%3D%2716.0%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27575.5%27%20y%3D%27207.7%27%20width%3D%2714.5%27%20height%3D%27312.3%27%20rx%3D%277.2%27%20fill%3D%27%232a7a67%27%2F%3E%3Crect%20x%3D%27577.5%27%20y%3D%27211.7%27%20width%3D%273%27%20height%3D%27304.3%27%20rx%3D%271.5%27%20fill%3D%27%2382c27e%27%20opacity%3D%27.45%27%2F%3E%3Crect%20x%3D%27574.0%27%20y%3D%27240.4%27%20width%3D%2717.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20240.4%29%20rotate%28-48.7%29%27%20d%3D%27M0%200%20C12.8%20-7.2%2035.8%20-8.2%2051.1%200%20C35.8%206.1%2012.8%206.1%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20244.4%29%20rotate%28243.9%29%27%20d%3D%27M0%200%20C10.9%20-6.1%2030.4%20-6.9%2043.4%200%20C30.4%205.2%2010.9%205.2%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27574.0%27%20y%3D%27312.4%27%20width%3D%2717.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20312.4%29%20rotate%28205.3%29%27%20d%3D%27M0%200%20C10.6%20-5.9%2029.7%20-6.8%2042.4%200%20C29.7%205.1%2010.6%205.1%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20316.4%29%20rotate%28-68.8%29%27%20d%3D%27M0%200%20C9.0%20-5.0%2025.2%20-5.8%2036.1%200%20C25.2%204.3%209.0%204.3%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27574.0%27%20y%3D%27387.9%27%20width%3D%2717.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20387.9%29%20rotate%28-24.4%29%27%20d%3D%27M0%200%20C13.9%20-7.8%2038.8%20-8.9%2055.5%200%20C38.8%206.7%2013.9%206.7%200%200%20Z%27%20fill%3D%27%233c8f6e%27%20opacity%3D%270.9%27%2F%3E%3Cpath%20transform%3D%27translate%28582.7%20391.9%29%20rotate%28238.2%29%27%20d%3D%27M0%200%20C11.8%20-6.6%2033.0%20-7.5%2047.1%200%20C33.0%205.7%2011.8%205.7%200%200%20Z%27%20fill%3D%27%2382c27e%27%20opacity%3D%270.75%27%2F%3E%3Crect%20x%3D%27574.0%27%20y%3D%27453.2%27%20width%3D%2717.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3Crect%20x%3D%27574.0%27%20y%3D%27506.8%27%20width%3D%2717.5%27%20height%3D%274%27%20rx%3D%272%27%20fill%3D%27%23083a3a%27%20opacity%3D%27.8%27%2F%3E%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201400%20300%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27h%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%230e616f%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23043643%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%27M0%20170%20C150%2090%20300%2090%20450%20150%20C600%20210%20750%2070%20900%20100%20C1050%20130%201250%20250%201400%20170%20L1400%20300%20L0%20300%20Z%27%20fill%3D%27url%28%23h%29%27%2F%3E%3Cpath%20d%3D%27M0%20170%20C150%2090%20300%2090%20450%20150%20C600%20210%20750%2070%20900%20100%20C1050%20130%201250%20250%201400%20170%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%27.22%27%20stroke-width%3D%273%27%2F%3E%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201800%20400%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27m%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%233a8a97%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%231a6b78%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%27M0%20330%20C80%20330%20160%20310%20240%20270%20C320%20230%20400%20150%20470%20105%20L500%2092%20L560%2092%20L590%20105%20C660%20150%20740%20230%20820%20270%20C900%20305%20960%20330%201040%20330%20C1100%20320%201160%20280%201230%20235%20C1290%20200%201330%20175%201370%20160%20C1410%20175%201450%20200%201500%20235%20C1570%20285%201650%20325%201720%20330%20C1760%20332%201780%20331%201800%20330%20L1800%20400%20L0%20400%20Z%27%20fill%3D%27url%28%23m%29%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M468%20107%20L500%2092%20L560%2092%20L592%20107%20C580%20118%20572%20126%20560%20120%20C548%20134%20536%20124%20528%20136%20C520%20126%20506%20134%20498%20122%20C486%20128%20476%20118%20468%20107%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.85%27%2F%3E%3Cpath%20d%3D%27M1340%20175%20L1370%20160%20L1400%20175%20C1390%20182%201384%20178%201376%20188%20C1368%20180%201356%20184%201348%20180%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.8%27%2F%3E%3C%2Fsvg%3E"),
+    radial-gradient(circle at var(--sun, 80% 20%), #cfe3ee 0 4vmax, rgba(207,227,238,.22) 4vmax 6.5vmax, rgba(207,227,238,.12) 6.5vmax 9.5vmax, rgba(106,158,179,.12) 9.5vmax 14vmax, transparent 14vmax),
+    linear-gradient(180deg, #022c39 0%, #043643 30%, #08525c 62%, #0e616f 100%);
+  background-size: auto 56vh, 1400px 40vh, 1800px 44vh, auto, auto;
+  background-repeat: repeat-x, repeat-x, repeat-x, no-repeat, no-repeat;
+  background-position: 0 calc(100% - 60px), 0 calc(100% - 110px), 0 calc(100% - 190px), 0 0, 0 0;
+}
+@media (max-width: 800px) {
+  body::after {
+    --sun: 78% 40%;
+    background-size: auto 42vh, 1400px 40vh, 1800px 44vh, auto, auto;
+  }
+}
+
+/* ---------- Lapis 2: cahaya lembut + butiran kertas ---------- */
+body::before {
+  animation: none;
+  background-image:
+    radial-gradient(60vmax 40vmax at 80% 22%, rgba(169, 200, 224, .14), transparent 70%),
+    radial-gradient(80vmax 34vmax at 50% 100%, rgba(106, 158, 179, .12), transparent 70%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27240%27%20height%3D%27240%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20type%3D%27saturate%27%20values%3D%270%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%20opacity%3D%27.2%27%2F%3E%3C%2Fsvg%3E");
+  background-size: auto, auto, 240px 240px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: 0 0, 0 0, 0 0;
+  opacity: .9;
+}
+
+/* ---------- Lapis 3: awan melayang (atas layar) ---------- */
+.scene::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 46vh;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201000%20220%27%3E%3Cg%20transform%3D%27translate%28120%20100%29%20scale%281.6%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.3%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28520%2060%29%20scale%281.1%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.22%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28760%20130%29%20scale%281.8%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.28%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201400%20240%27%3E%3Cg%20transform%3D%27translate%28220%2090%29%20scale%281.2%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.16%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28760%20150%29%20scale%280.9%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.12%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%281120%2070%29%20scale%281.4%29%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%270.15%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%27-12%27%20r%3D%2728%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27-2%27%20r%3D%2722%27%2F%3E%3Ccircle%20cx%3D%2782%27%20cy%3D%276%27%20r%3D%2716%27%2F%3E%3Crect%20x%3D%27-22%27%20y%3D%270%27%20width%3D%27120%27%20height%3D%2722%27%20rx%3D%2711%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-size: 1000px 220px, 1400px 240px;
+  background-repeat: repeat-x, repeat-x;
+  background-position: 0 30px, 0 150px;
+  animation: awan 240s linear infinite;
+}
+@keyframes awan { to { background-position: -2000px 30px, -1400px 150px; } }
+
+/* ---------- Lapis 4: lentera naik pelan ---------- */
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20700%20900%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23cfe3ee%27%20stop-opacity%3D%27.5%27%2F%3E%3Cstop%20offset%3D%27.4%27%20stop-color%3D%27%23b5dba5%27%20stop-opacity%3D%27.22%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%2382c27e%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%3ClinearGradient%20id%3D%27b%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%2382c27e%27%2F%3E%3Cstop%20offset%3D%27.65%27%20stop-color%3D%27%23b5dba5%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23cfe3ee%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cg%20transform%3D%27translate%28160%20200%29%20scale%280.9%29%27%3E%3Ccircle%20r%3D%2772%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M-16%20-30%20Q0%20-38%2016%20-30%20L22%2022%20Q0%2030%20-22%2022%20Z%27%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.5%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M0%20-34%20L0%2025%20M-9%20-32%20L-12%2024%20M9%20-32%20L12%2024%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.35%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%2F%3E%3Cellipse%20cx%3D%270%27%20cy%3D%2727%27%20rx%3D%278%27%20ry%3D%274%27%20fill%3D%27%23fff7c8%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28520%20470%29%20scale%280.7%29%27%3E%3Ccircle%20r%3D%2772%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M-16%20-30%20Q0%20-38%2016%20-30%20L22%2022%20Q0%2030%20-22%2022%20Z%27%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.5%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M0%20-34%20L0%2025%20M-9%20-32%20L-12%2024%20M9%20-32%20L12%2024%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.35%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%2F%3E%3Cellipse%20cx%3D%270%27%20cy%3D%2727%27%20rx%3D%278%27%20ry%3D%274%27%20fill%3D%27%23fff7c8%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28300%20720%29%20scale%281.0%29%27%3E%3Ccircle%20r%3D%2772%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M-16%20-30%20Q0%20-38%2016%20-30%20L22%2022%20Q0%2030%20-22%2022%20Z%27%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.5%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M0%20-34%20L0%2025%20M-9%20-32%20L-12%2024%20M9%20-32%20L12%2024%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.35%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%2F%3E%3Cellipse%20cx%3D%270%27%20cy%3D%2727%27%20rx%3D%278%27%20ry%3D%274%27%20fill%3D%27%23fff7c8%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20560%20780%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23cfe3ee%27%20stop-opacity%3D%27.5%27%2F%3E%3Cstop%20offset%3D%27.4%27%20stop-color%3D%27%23b5dba5%27%20stop-opacity%3D%27.22%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%2382c27e%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%3ClinearGradient%20id%3D%27b%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%2382c27e%27%2F%3E%3Cstop%20offset%3D%27.65%27%20stop-color%3D%27%23b5dba5%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23cfe3ee%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cg%20transform%3D%27translate%28120%20160%29%20scale%280.6%29%27%3E%3Ccircle%20r%3D%2772%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M-16%20-30%20Q0%20-38%2016%20-30%20L22%2022%20Q0%2030%20-22%2022%20Z%27%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.5%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M0%20-34%20L0%2025%20M-9%20-32%20L-12%2024%20M9%20-32%20L12%2024%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.35%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%2F%3E%3Cellipse%20cx%3D%270%27%20cy%3D%2727%27%20rx%3D%278%27%20ry%3D%274%27%20fill%3D%27%23fff7c8%27%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%27translate%28410%20520%29%20scale%280.5%29%27%3E%3Ccircle%20r%3D%2772%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Cpath%20d%3D%27M-16%20-30%20Q0%20-38%2016%20-30%20L22%2022%20Q0%2030%20-22%2022%20Z%27%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.5%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M0%20-34%20L0%2025%20M-9%20-32%20L-12%2024%20M9%20-32%20L12%2024%27%20stroke%3D%27%23022c39%27%20stroke-opacity%3D%27.35%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%2F%3E%3Cellipse%20cx%3D%270%27%20cy%3D%2727%27%20rx%3D%278%27%20ry%3D%274%27%20fill%3D%27%23fff7c8%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-size: 700px 900px, 560px 780px;
+  background-repeat: repeat, repeat;
+  background-position: 0 0, 220px 0;
+  animation: lentera 120s linear infinite;
+}
+@keyframes lentera { to { background-position: 0 -1800px, 220px -1560px; } }
+
+/* ---------- Lapis 5: laut seigaiha + ikan koi (paling depan, di dasar layar) ---------- */
+html::after {
+  content: "";
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 230px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%2092%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%230e616f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%230e616f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%230e616f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%230e616f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2308525c%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2308525c%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2308525c%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%23043643%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%23043643%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%23043643%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%23043643%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20160%2070%27%3E%3Cpath%20d%3D%27M26%2035%20C14%2030%208%2020%200%208%20C12%2010%2022%2014%2032%2024%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.85%27%2F%3E%3Cpath%20d%3D%27M26%2035%20C14%2040%208%2050%200%2062%20C12%2060%2022%2056%2032%2046%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.85%27%2F%3E%3Cpath%20d%3D%27M112%2046%20C104%2058%2092%2064%2082%2066%20C90%2058%2098%2052%20104%2044%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M100%2018%20C92%206%2080%202%2070%202%20C76%208%2084%2014%2092%2018%20Z%27%20fill%3D%27%23cfe3ee%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M150%2035%20C140%2018%20110%2012%2080%2016%20C50%2020%2030%2030%2022%2035%20C30%2040%2050%2050%2080%2054%20C110%2058%20140%2052%20150%2035%20Z%27%20fill%3D%27%23cfe3ee%27%2F%3E%3Cpath%20d%3D%27M58%2022%20C70%2015%2092%2016%20102%2023%20C92%2030%2072%2032%2058%2027%20Z%27%20fill%3D%27%2382c27e%27%2F%3E%3Ccircle%20cx%3D%27124%27%20cy%3D%2727%27%20r%3D%278%27%20fill%3D%27%2382c27e%27%2F%3E%3Cpath%20d%3D%27M40%2036%20C48%2033%2056%2036%2054%2041%20C48%2044%2042%2042%2040%2036%20Z%27%20fill%3D%27%2382c27e%27%2F%3E%3Ccircle%20cx%3D%27139%27%20cy%3D%2730%27%20r%3D%272.6%27%20fill%3D%27%23022c39%27%2F%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%2092%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%233a8a97%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%233a8a97%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2725%27%20fill%3D%27%233a8a97%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2725%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%232c7b88%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%232c7b88%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%232c7b88%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2725%27%20fill%3D%27%232c7b88%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2739%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2725%27%20fill%3D%27%2321707e%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27100%27%20cy%3D%2753%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%2317626f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27-25%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%2317626f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%2317626f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%2775%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2725%27%20fill%3D%27%2317626f%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2719%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27125%27%20cy%3D%2767%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23cfe3ee%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E");
+  background-size: 150px auto, 110px auto, 110px auto;
+  background-repeat: repeat-x, no-repeat, repeat-x;
+  background-position: 0 100%, -140px calc(100% - 150px), 0 calc(100% - 100px);
+  animation: laut 60s linear infinite;
+}
+@keyframes laut {
+  to {
+    background-position: -1500px 100%, calc(100% + 140px) calc(100% - 150px), -770px calc(100% - 100px);
+  }
+}
+
+/* ---------- Keterbacaan & gerak ---------- */
+@media (max-width: 800px) {
+  .scene::after { opacity: .7; }
+  html::after { height: 190px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene::before, .scene::after, html::after { animation: none; }
+}
